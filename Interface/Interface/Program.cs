@@ -1,10 +1,6 @@
 ﻿// Cliff Browne - X00014810
 // EAD lab 3 Interfaces
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 /* You are required to redesign the solution you came up with for Lab 1 to use an interface. 
  * Rather than having a ThreeDShape superclass and a Sphere subclass you should define a 
@@ -12,9 +8,7 @@ using System.Threading.Tasks;
 
 namespace Shape
 {
-
-    /* The program will have one interface and one class:
-IHasVolume interface
+/* The program will have one interface and one class: IHasVolume interface
 1.	The interface should have a method which calculates the volume of an item */
     public interface IHasVolume
     {
@@ -57,12 +51,14 @@ IHasVolume interface
                 }
             }
         }
+
         /* 5.	Implement a method to calculate the volume of the sphere i.e. PI * radius * radius * radius. 
                 This method is required since the class implements the IHasVolume interface. */
         public virtual double CalcVolume()
         {
             return Math.PI * Radius * Radius;
         }
+
         // 6.	Override the ToString() method inherited from Object, make it display information about the sphere.
         public override string ToString()
         {
@@ -77,12 +73,13 @@ IHasVolume interface
         public static void Main()
         {
             // 8.	Make a collection of spheres and call various methods.
-            Shape.IHasVolume[] collection = (new Shape.Sphere(), new Shape.Sphere(10));
+            //Shape.IHasVolume[] collection = new Shape.Sphere(), new Shape.Sphere(10);
+            Shape.IHasVolume[] collection = new Shape.Sphere().Shape.Sphere(10);  
             /* Call the method to calculate the volume of a sphere polymorphically 
-                * via a reference of type IHasVolume. 
-            * Display details of the sphere object. */
+                * via a reference of type IHasVolume. */
             foreach(Shape.IHasVolume s in collection)
             {
+                // Display details of the sphere object.
                 Console.WriteLine(s + " volume: " + s.CalcVolume());
             }
         }
